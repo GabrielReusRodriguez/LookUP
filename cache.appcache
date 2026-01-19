@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# v1.0.8 - 2026-01-19
+# v1.1.2 - 2026-01-19
 
 CACHE:
 lookUP.html
-style.css?v=1.0.7
-app.js?v=1.0.7
+style.css?v=1.1.1
+app.js?v=1.1.1
 https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
 https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap

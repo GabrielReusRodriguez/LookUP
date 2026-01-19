@@ -295,8 +295,8 @@ const app = {
     renderTable: function () {
         let { filteredData, currentPage, itemsPerPage } = this.state;
 
-        // Force 25 items on mobile
-        if (window.innerWidth <= 768) {
+        // Force 25 items on mobile (width) or landscape (height)
+        if (window.innerWidth <= 768 || window.innerHeight <= 500) {
             itemsPerPage = 25;
         }
 

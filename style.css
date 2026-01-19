@@ -688,3 +688,86 @@ tr:hover td {
         font-size: 1.2rem;
     }
 }
+
+/* Landscape Mode Optimization (Vertical space is premium) */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .app-container {
+        height: 100vh;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .glass-header {
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo-icon {
+        font-size: 1.2rem;
+    }
+
+    .status-indicator {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .control-bar {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    #manualLoadBtn {
+        display: none !important;
+    }
+
+    input,
+    select,
+    .btn-secondary {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .table-container {
+        padding: 0 1rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+
+    .pagination-bar {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        flex-direction: row;
+        /* Keep it compact horizontally */
+    }
+
+    .items-per-page-group {
+        display: none !important;
+    }
+
+    .glass-footer {
+        padding: 0.3rem 1rem;
+        border-radius: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.75rem;
+    }
+
+    .hide-mobile,
+    .footer-license {
+        display: none !important;
+    }
+
+
+    .modal-content {
+        padding: 1rem;
+        max-height: 95vh;
+    }
+}
