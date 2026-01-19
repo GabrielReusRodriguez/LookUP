@@ -41,6 +41,7 @@ const app = {
         startRange: document.getElementById('startRange'),
         endRange: document.getElementById('endRange'),
         totalItems: document.getElementById('totalItems'),
+        itemsPerPageSelect: document.getElementById('itemsPerPageSelect'),
         loadingState: document.getElementById('loadingState'),
         noResults: document.getElementById('noResults'),
         errorState: document.getElementById('errorState'),
@@ -95,6 +96,13 @@ const app = {
             this.state.filters.type = e.target.value;
             this.state.currentPage = 1;
             this.filterData();
+        });
+
+        // Items Per Page
+        this.elements.itemsPerPageSelect.addEventListener('change', (e) => {
+            this.state.itemsPerPage = parseInt(e.target.value);
+            this.state.currentPage = 1;
+            this.renderTable();
         });
 
         // Pagination

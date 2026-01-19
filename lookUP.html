@@ -118,6 +118,17 @@
 
             <!-- Pagination -->
             <div class="pagination-bar">
+                <div class="items-per-page-group"
+                    style="display: flex; align-items: center; gap: 10px; margin-right: auto;">
+                    <label for="itemsPerPageSelect"
+                        style="color: var(--text-muted); font-size: 0.9rem;">Mostrar:</label>
+                    <select id="itemsPerPageSelect" style="width: auto; padding: 8px 32px 8px 12px; font-size: 0.9rem;">
+                        <option value="25">25</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
                 <div class="pagination-info">
                     Mostrant <span id="startRange">0</span> - <span id="endRange">0</span> de <span
                         id="totalItems">0</span> resultats
