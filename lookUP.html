@@ -33,7 +33,7 @@
     <!-- JSZip -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0.2">
 </head>
 
 <body>
@@ -72,6 +72,13 @@
                 <div class="filter-group">
                     <select id="filterType">
                         <option value="">Tots els tipus</option>
+                        <!-- Populated dynamic -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <select id="filterSubtype">
+                        <option value="">Tots els subtipus</option>
                         <!-- Populated dynamic -->
                     </select>
                 </div>
@@ -173,7 +180,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=1.0.2"></script>
 </body>
 
 </html>

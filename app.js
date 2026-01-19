@@ -25,7 +25,8 @@ const app = {
         itemsPerPage: 50,
         filters: {
             search: '',
-            type: ''
+            type: '',
+            subtype: ''
         },
         isLoading: true
     },
@@ -35,6 +36,7 @@ const app = {
         tableBody: document.getElementById('tableBody'),
         searchInput: document.getElementById('searchInput'),
         filterType: document.getElementById('filterType'),
+        filterSubtype: document.getElementById('filterSubtype'),
         prevBtn: document.getElementById('prevBtn'),
         nextBtn: document.getElementById('nextBtn'),
         pageNumbers: document.getElementById('pageNumbers'),
@@ -94,6 +96,15 @@ const app = {
         // Type Filter
         this.elements.filterType.addEventListener('change', (e) => {
             this.state.filters.type = e.target.value;
+            this.state.filters.subtype = ''; // Reset sub-type when type changes
+            this.state.currentPage = 1;
+            this.populateSubtypeFilter(); // Re-populate subtypes
+            this.filterData();
+        });
+
+        // Subtype Filter
+        this.elements.filterSubtype.addEventListener('change', (e) => {
+            this.state.filters.subtype = e.target.value;
             this.state.currentPage = 1;
             this.filterData();
         });
@@ -224,6 +235,7 @@ const app = {
         this.state.allData = data;
         this.state.filteredData = data;
         this.populateTypeFilter();
+        this.populateSubtypeFilter();
         this.filterData();
 
         this.updateStatus('Dades carregades', 'success');
@@ -243,8 +255,27 @@ const app = {
         });
     },
 
+    populateSubtypeFilter: function () {
+        const selectedType = this.state.filters.type;
+        const subtypes = new Set(
+            this.state.allData
+                .filter(item => !selectedType || item.descTipus === selectedType)
+                .map(item => item.descSubtipus)
+                .filter(Boolean)
+        );
+        const sortedSubtypes = Array.from(subtypes).sort();
+
+        this.elements.filterSubtype.innerHTML = '<option value="">Tots els subtipus</option>';
+        sortedSubtypes.forEach(subtype => {
+            const option = document.createElement('option');
+            option.value = subtype;
+            option.textContent = subtype;
+            this.elements.filterSubtype.appendChild(option);
+        });
+    },
+
     filterData: function () {
-        const { search, type } = this.state.filters;
+        const { search, type, subtype } = this.state.filters;
 
         this.state.filteredData = this.state.allData.filter(item => {
             const matchesSearch =
@@ -253,8 +284,9 @@ const app = {
                 (item.descEP?.toLowerCase().includes(search) || '');
 
             const matchesType = type === '' || item.descTipus === type;
+            const matchesSubtype = subtype === '' || item.descSubtipus === subtype;
 
-            return matchesSearch && matchesType;
+            return matchesSearch && matchesType && matchesSubtype;
         });
 
         this.renderTable();
