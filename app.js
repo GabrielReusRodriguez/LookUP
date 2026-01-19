@@ -46,7 +46,11 @@ const app = {
         errorState: document.getElementById('errorState'),
         fileInput: document.getElementById('fileInput'),
         manualLoadBtn: document.getElementById('manualLoadBtn'),
-        statusIndicator: document.getElementById('status-indicator')
+        statusIndicator: document.getElementById('status-indicator'),
+        // Modal Elements
+        helpBtn: document.getElementById('helpBtn'),
+        closeHelpBtn: document.getElementById('closeHelpBtn'),
+        helpModal: document.getElementById('helpModal')
     },
 
     init: async function () {
@@ -64,6 +68,21 @@ const app = {
     },
 
     bindEvents: function () {
+        // Modal Logic
+        this.elements.helpBtn.addEventListener('click', () => {
+            this.elements.helpModal.classList.remove('hidden');
+        });
+
+        this.elements.closeHelpBtn.addEventListener('click', () => {
+            this.elements.helpModal.classList.add('hidden');
+        });
+
+        this.elements.helpModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.helpModal) {
+                this.elements.helpModal.classList.add('hidden');
+            }
+        });
+
         // Search
         this.elements.searchInput.addEventListener('input', (e) => {
             this.state.filters.search = e.target.value.toLowerCase();

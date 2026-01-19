@@ -50,8 +50,13 @@
                     <i class="fa-solid fa-notes-medical logo-icon"></i>
                     <h1>CatSalut <span class="highlight">LookUP</span></h1>
                 </div>
-                <div class="status-indicator" id="status-indicator">
-                    <i class="fa-solid fa-circle-notch fa-spin"></i> Inicialitzant...
+                <div class="header-actions">
+                    <div class="status-indicator" id="status-indicator">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> Inicialitzant...
+                    </div>
+                    <button id="helpBtn" class="btn-icon" title="Ajuda">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </button>
                 </div>
             </div>
         </header>
@@ -133,6 +138,28 @@
             <p style="font-size: 0.8em; opacity: 0.8;">Licensed under the <a href="LICENSE" target="_blank">GNU General
                     Public License v3.0</a></p>
         </footer>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2>Guia d'Ús</h2>
+                <span class="close-btn" id="closeHelpBtn">&times;</span>
+            </div>
+            <div class="modal-body custom-scrollbar">
+                <p>Benvingut a <strong>Catsalut LookUP</strong>.</p>
+                <ul>
+                    <li><strong>Descàrrega Automàtica:</strong> L'app intenta descarregar les dades a l'inici.</li>
+                    <li><strong>Càrrega Manual:</strong> Si falla (error CORS), utilitza el botó <i
+                            class="fa-solid fa-upload"></i> per pujar el fitxer <code>cataleg-up.zip</code>.</li>
+                    <li><strong>Cerca:</strong> Escriu per filtrar per codi, nom o entitat.</li>
+                    <li><strong>Filtres:</strong> Utilitza el desplegable per filtrar per tipus d'unitat.</li>
+                </ul>
+                <p class="license-info">Llicència GPLv3. Codi font disponible a <a
+                        href="https://github.com/GabrielReusRodriguez/LookUP" target="_blank">GitHub</a>.</p>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>
