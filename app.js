@@ -293,7 +293,12 @@ const app = {
     },
 
     renderTable: function () {
-        const { filteredData, currentPage, itemsPerPage } = this.state;
+        let { filteredData, currentPage, itemsPerPage } = this.state;
+
+        // Force 25 items on mobile
+        if (window.innerWidth <= 768) {
+            itemsPerPage = 25;
+        }
 
         // Calculate range
         const start = (currentPage - 1) * itemsPerPage;
