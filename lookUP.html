@@ -54,7 +54,7 @@
                     <div class="status-indicator" id="status-indicator">
                         <i class="fa-solid fa-circle-notch fa-spin"></i> Inicialitzant...
                     </div>
-                    <button id="helpBtn" class="btn-icon" title="Ajuda">
+                    <button id="helpBtn" class="btn-icon" type="button" title="Ajuda" aria-label="Ajuda">
                         <i class="fa-solid fa-circle-question"></i>
                     </button>
                 </div>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="action-group">
-                    <button id="manualLoadBtn" class="btn-secondary"
+                    <button id="manualLoadBtn" class="btn-secondary" type="button"
                         title="Carregar fitxer manualment si falla la descàrrega">
                         <i class="fa-solid fa-upload"></i> Carregar ZIP
                     </button>
@@ -119,7 +119,7 @@
                 <div id="errorState" class="error-state hidden">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <p id="errorMessage">Error carregant les dades.</p>
-                    <button class="btn-primary" onclick="app.retryDownload()">Reintentar</button>
+                    <button class="btn-primary" type="button" onclick="app.retryDownload()">Reintentar</button>
                 </div>
             </div>
 
@@ -141,11 +141,11 @@
                         id="totalItems">0</span> resultats
                 </div>
                 <div class="pagination-controls">
-                    <button id="prevBtn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="prevBtn" type="button" aria-label="Pàgina anterior" disabled><i class="fa-solid fa-chevron-left"></i></button>
                     <div id="pageNumbers" class="page-numbers">
                         <!-- Page numbers -->
                     </div>
-                    <button id="nextBtn" disabled><i class="fa-solid fa-chevron-right"></i></button>
+                    <button id="nextBtn" type="button" aria-label="Pàgina següent" disabled><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
         </main>
