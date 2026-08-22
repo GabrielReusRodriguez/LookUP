@@ -1,0 +1,31 @@
+name: Link Checker
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check CatSalut data URL
+        run: |
+          URL="https://catsalut.gencat.cat/web/.content/minisite/catsalut/proveidors_professionals/registres_catalegs/catalegs/territorials-unitats-proveidores/cataleg-up.zip"
+          echo "Checking URL: $URL"
+          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 --head "$URL")
+          echo "HTTP status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "::error::Data source URL returned HTTP $HTTP_STATUS. The CatSalut catalogue ZIP may have moved or be unavailable."
+            exit 1
+          fi
+          echo "URL is accessible (HTTP $HTTP_STATUS)"
+
+      - name: Check links in HTML and README
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --exclude-mail lookUP.html README.md
+          fail: true
