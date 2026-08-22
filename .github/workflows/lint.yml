@@ -28,10 +28,10 @@ jobs:
             stylelint-config-standard
 
       - name: Run ESLint
-        run: npx eslint app.js
+        run: npx eslint --config .ci/eslint.config.js app.js
 
       - name: Run html-validate
-        run: npx html-validate lookUP.html
+        run: npx html-validate --config .ci/.htmlvalidate.json lookUP.html
 
       - name: Run Stylelint
-        run: npx stylelint style.css
+        run: npx stylelint --config .ci/.stylelintrc.json style.css
