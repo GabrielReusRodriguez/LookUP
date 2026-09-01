@@ -22,10 +22,38 @@ L'aplicació destaca pel seu disseny "Glassmorphism Premium" i la capacitat de p
    - Si veus un missatge d'error (habitual per restriccions de seguretat dels navegadors), fes clic al botó **"Carregar ZIP"**.
    - Selecciona el fitxer `cataleg-up.zip` que pots descarregar des de la [web de CatSalut](https://catsalut.gencat.cat/web/.content/minisite/catsalut/proveidors_professionals/registres_catalegs/catalegs/territorials-unitats-proveidores/cataleg-up.zip).
 
+## Desplegament amb Docker
+
+Pots executar l'aplicació en un contenidor Docker amb Nginx:
+
+### Amb Docker Compose (recomanat)
+
+```bash
+docker compose up -d
+```
+
+L'aplicació estarà disponible a [http://localhost:8080](http://localhost:8080).
+
+Per aturar-la:
+```bash
+docker compose down
+```
+
+### Amb Docker directament
+
+```bash
+# Construir la imatge
+docker build -t lookup .
+
+# Executar el contenidor
+docker run -d -p 8080:80 --name lookup lookup
+```
+
 ## Requisits Tècnics
 
 - Navegador web modern amb suport per JavaScript (ES6+).
 - Connexió a internet (per carregar llibreries externes com JSZip i FontAwesome).
+- Docker i Docker Compose (opcional, per al desplegament en contenidor).
 
 ## Licencia
 
