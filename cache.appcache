@@ -2,7 +2,7 @@ CACHE MANIFEST
 # v1.1.2 - 2026-01-19
 
 CACHE:
-lookUP.html
+index.html
 style.css?v=1.1.1
 app.js?v=1.1.1
 https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
