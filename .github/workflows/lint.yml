@@ -31,7 +31,7 @@ jobs:
         run: npx eslint --config .ci/eslint.config.js app.js
 
       - name: Run html-validate
-        run: npx html-validate --config .ci/.htmlvalidate.json lookUP.html
+        run: npx html-validate --config .ci/.htmlvalidate.json index.html
 
       - name: Run Stylelint
         run: npx stylelint --config .ci/.stylelintrc.json style.css

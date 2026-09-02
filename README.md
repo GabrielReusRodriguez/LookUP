@@ -15,7 +15,7 @@ L'aplicació destaca pel seu disseny "Glassmorphism Premium" i la capacitat de p
 ## Com utilitzar-la
 
 1. **Obrir l'aplicació**:
-   Simplement obre el fitxer `lookUP.html` amb el teu navegador web preferit (Chrome, Firefox, Edge, Safari). No requereix instal·lació ni servidor web.
+   Simplement obre el fitxer `index.html` amb el teu navegador web preferit (Chrome, Firefox, Edge, Safari). No requereix instal·lació ni servidor web.
 
 2. **Càrrega de dades**:
    - L'aplicació intentarà descarregar les dades automàticament.
